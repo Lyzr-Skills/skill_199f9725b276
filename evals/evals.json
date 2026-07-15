@@ -1,0 +1,109 @@
+{
+  "skill_name": "outreach_follow_up_generator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draft follow up for Omar Al-Rashidi, Head of Supply Chain at a major KSA retailer. I emailed him 5 days ago about our WMS automation platform and heard nothing back. My name is Khalid. He's based in Riyadh.",
+      "expected_output": "A follow-up email under 60 words referencing a KSA-specific regulatory hook (SASO/Saber or NTP), a specific anonymized social proof metric, a peer-to-peer warm tone, and a concrete day-specific CTA. Includes a subject line under 6 words and drafting notes.",
+      "assertions": [
+        {
+          "name": "word_count_under_60",
+          "type": "programmatic",
+          "description": "The email body (between greeting and sign-off) must be strictly under 60 words"
+        },
+        {
+          "name": "no_hollow_phrases",
+          "type": "llm_judge",
+          "description": "The message must not contain phrases like 'just following up', 'checking in', 'circling back', or apologies for emailing"
+        },
+        {
+          "name": "gcc_regulatory_hook_present",
+          "type": "llm_judge",
+          "description": "The message must reference a KSA-specific regulatory or operational context (e.g., SASO, Saber, NTP, Vision 2030)"
+        },
+        {
+          "name": "specific_metric_in_social_proof",
+          "type": "llm_judge",
+          "description": "The social proof must include a specific, measurable result (hours saved, percentage improvement, etc.)"
+        },
+        {
+          "name": "day_specific_cta",
+          "type": "llm_judge",
+          "description": "The CTA must reference a specific day or time window, not a vague 'whenever works for you'"
+        },
+        {
+          "name": "subject_line_6_words_max",
+          "type": "programmatic",
+          "description": "Subject line must be 6 words or fewer"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Generate follow-up 2 for Sara Al-Mansoori, Operations Director at a UAE logistics company. We already sent follow-up 1 last week. She hasn't replied. Sender name: Rania. Company is based in Dubai.",
+      "expected_output": "A Follow-up 2 message using a DIFFERENT angle/hook from what would have been used in Follow-up 1. UAE-specific hook (Dubai Customs, Jafza, etc.), different social proof, same tone constraints (under 60 words, peer-to-peer, no hollow phrases). Different subject line pattern.",
+      "assertions": [
+        {
+          "name": "word_count_under_60",
+          "type": "programmatic",
+          "description": "The email body must be strictly under 60 words"
+        },
+        {
+          "name": "uae_specific_hook",
+          "type": "llm_judge",
+          "description": "The hook must be UAE-specific (e.g., Dubai Customs, Jebel Ali, Jafza, UAE e-commerce regulation)"
+        },
+        {
+          "name": "follow_up_2_tone_distinction",
+          "type": "llm_judge",
+          "description": "Message acknowledges prior contact briefly but leads with a new angle or different value framing"
+        },
+        {
+          "name": "no_hollow_phrases",
+          "type": "llm_judge",
+          "description": "No 'just following up', 'checking in', 'circling back', or apologetic language"
+        },
+        {
+          "name": "day_specific_cta",
+          "type": "llm_judge",
+          "description": "CTA includes a named day or specific time window"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Sequence step 2 — send a break-up message to Ahmed Al-Kuwari at a Qatar procurement firm. We've tried twice already. His company deals with project logistics for infrastructure projects. Sender is Maya.",
+      "expected_output": "A Follow-up 3 (break-up) message that is short, warm, zero-pressure, references a Qatar-specific hook briefly, leaves the door open without chasing, and exits gracefully. Tone is distinctly lower-key than steps 1 and 2.",
+      "assertions": [
+        {
+          "name": "word_count_under_60",
+          "type": "programmatic",
+          "description": "Body must be under 60 words"
+        },
+        {
+          "name": "break_up_tone",
+          "type": "llm_judge",
+          "description": "Message signals it's the last outreach for now without being passive-aggressive or desperate"
+        },
+        {
+          "name": "leaves_door_open",
+          "type": "llm_judge",
+          "description": "Message explicitly signals the prospect can reach out when timing is right, without pressuring"
+        },
+        {
+          "name": "qatar_context_referenced",
+          "type": "llm_judge",
+          "description": "Message briefly mentions a Qatar-relevant context (Hamad Port, infrastructure projects, MOCI, etc.)"
+        },
+        {
+          "name": "no_hollow_phrases",
+          "type": "llm_judge",
+          "description": "No apologetic filler or hollow phrases used"
+        }
+      ],
+      "files": []
+    }
+  ]
+}
